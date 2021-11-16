@@ -26,9 +26,9 @@ router.get("/delete/todo/:_id", (req, res) => {
 });
 
 router.get("/edit/todo/:_id", (req, res) => {
-  const { _id } = req.params;
-  console.log(_id)
-  Todo.
+  const name = req.getElementsByName("inputValue")[0].value
+  console.log(name)
+
 });
 
 module.exports = router;
