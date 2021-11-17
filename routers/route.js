@@ -1,34 +1,13 @@
 const { Router } = require("express");
 const router = Router();
-const Todo = require("../models/Todo");
+const indexcontroller = require('../controllers/index');
 
-router.get("/home", (req, res) => {
-  res.send("hello word");
-});
+router.get("/",indexcontroller.gethome)
 
-router.get("/p/:id", (req, res) => {
-  res.send(`Id is ${req.params.id}`);
-});
+router.get("/delete/todo/:_id",indexcontroller.getDeleted);
 
-router.get("/", async (req, res) => {
-  const allTodo = await Todo.find();
-  res.render("index", { todo: allTodo });
-});
+router.get("/edit/:_id",indexcontroller.getEdit);
 
-router.get("/delete/todo/:_id", (req, res) => {
-  const { _id } = req.params;
-  Todo.deleteOne({ _id })
-    .then(() => {
-      console.log("Deleted todo Successfully!");
-      res.redirect("/");
-    })
-    .catch((err) => console.log(err));
-});
-
-router.get("/edit/todo/:_id", (req, res) => {
-  const name = req.getElementsByName("inputValue")[0].value
-  console.log(name)
-
-});
+router.put("/edit/:_id",indexcontroller.putEdit);
 
 module.exports = router;

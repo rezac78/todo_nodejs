@@ -18,13 +18,7 @@
                                 <div class="text-start m-2">
                                         <a href="/delete/todo/<%= todos._id %>"
                                                 class="btn btn-danger btn-sm">Deleted</a>
-                                        <div>
-                                                
-                                                <a href="/edit/todo/<%= todos._id %>" class="btn btn-primary btn-sm">
-                                                        Edit
-                                                        <input class="text-center" name="inputValue" type="text" value="<%= todos.todo %>">
-                                                </a>
-                                        </div>
+                                                <a href="/edit/<%= todos._id %>" class="btn btn-primary btn-sm">Edit</a>  
                                 </div>
                                 
                         <% }) %>

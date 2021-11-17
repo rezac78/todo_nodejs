@@ -1,0 +1,13 @@
+<%- include("./includes/header.ejs")%>
+        <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                        <a class="navbar-brand" href="/">Todo</a>
+                </div>
+        </nav>
+        <div class="container mt-5">
+                <form method="POST" action="/edit/<%= todo._id %>?method=PUT"  class="d-flex">
+                        <input type="text" name="todo" class="form-control" placeholder="<%= todo.todo%>">
+                        <input type="submit" value="Edit" class="btn btn-md btn-primary mx-2">
+                </form>
+        </div>
+<%- include("./includes/footer.ejs")%>
