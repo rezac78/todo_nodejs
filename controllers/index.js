@@ -5,6 +5,19 @@ exports.gethome = async (req, res) => {
   res.render("index", { todo: allTodo });
 };
 
+exports.postAdd = (req, res) => {
+  const { todo } = req.body;
+  const newTodo = new Todo({ todo });
+
+  newTodo
+    .save()
+    .then(() => {
+      console.log("successefully added todo!");
+      res.redirect("/");
+    })
+    .catch((err) => console.log(err));
+};
+
 exports.getDeleted = (req, res) => {
   const { _id } = req.params;
   Todo.deleteOne({ _id })

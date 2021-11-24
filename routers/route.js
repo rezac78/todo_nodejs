@@ -4,6 +4,8 @@ const indexcontroller = require('../controllers/index');
 
 router.get("/",indexcontroller.gethome)
 
+router.post("/add/todo", indexcontroller.postAdd);
+
 router.get("/delete/todo/:_id",indexcontroller.getDeleted);
 
 router.get("/edit/:_id",indexcontroller.getEdit);
